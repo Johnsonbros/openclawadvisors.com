@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — OpenClaw Advisors | Nate Johnson</title>
+<meta name="description" content="Real-world AI automation stories, guides, and insights from a plumber who runs 4 AI agents. Practical advice for service businesses.">
+<meta property="og:title" content="Blog — OpenClaw Advisors">
+<meta property="og:description" content="Real-world AI automation stories from a plumber running 4 AI agents.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://openclawadvisors.com/blog/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://openclawadvisors.com/blog/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --slate-950: #020617; --slate-900: #0f172a; --slate-800: #1e293b;
+  --slate-700: #334155; --slate-600: #475569; --slate-400: #94a3b8;
+  --slate-300: #cbd5e1; --slate-200: #e2e8f0; --slate-100: #f1f5f9;
+  --blue-500: #3b82f6; --blue-600: #2563eb; --blue-400: #60a5fa;
+  --green-400: #4ade80; --amber-400: #fbbf24;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--slate-950); color: var(--slate-300);
+  line-height: 1.7; font-size: 16px;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+h1, h2, h3 { color: var(--slate-100); line-height: 1.2; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; }
+h2 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 700; }
+a { color: var(--blue-400); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--blue-500); }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(51, 65, 85, 0.5); padding: 16px 0;
+}
+nav .container { display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--slate-100); }
+.nav-logo span { color: var(--blue-500); }
+.nav-links { display: flex; gap: 24px; align-items: center; }
+.nav-links a { color: var(--slate-400); font-size: 0.875rem; font-weight: 500; }
+.nav-links a:hover { color: var(--slate-100); }
+.nav-links a.active { color: var(--blue-400); }
+.nav-cta {
+  background: var(--blue-500) !important; color: white !important;
+  padding: 8px 16px; border-radius: 8px; font-weight: 600 !important;
+}
+.nav-cta:hover { background: var(--blue-600) !important; }
+@media (max-width: 640px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+.page-header { padding-top: 120px; padding-bottom: 48px; text-align: center; }
+.page-header p { color: var(--slate-400); max-width: 560px; margin: 16px auto 0; }
+
+.blog-grid { padding-bottom: 80px; }
+.blog-card {
+  background: var(--slate-900); border: 1px solid var(--slate-800);
+  border-radius: 16px; padding: 32px; margin-bottom: 24px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.blog-card:hover { border-color: var(--slate-700); transform: translateY(-2px); }
+.blog-card .tag {
+  display: inline-block; background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(59,130,246,0.3); color: var(--blue-400);
+  padding: 4px 12px; border-radius: 100px; font-size: 0.75rem;
+  font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+.blog-card h2 { margin-bottom: 12px; }
+.blog-card h2 a { color: var(--slate-100); }
+.blog-card h2 a:hover { color: var(--blue-400); }
+.blog-card .excerpt { color: var(--slate-400); margin-bottom: 16px; }
+.blog-card .meta { color: var(--slate-600); font-size: 0.85rem; }
+.blog-card .read-more {
+  display: inline-block; margin-top: 12px; font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.more-guides {
+  text-align: center; padding: 48px 0 80px;
+  border-top: 1px solid var(--slate-800);
+}
+.more-guides p { color: var(--slate-400); margin-bottom: 16px; }
+
+footer {
+  border-top: 1px solid var(--slate-800); padding: 40px 0; text-align: center;
+}
+footer p { color: var(--slate-600); font-size: 0.875rem; margin-bottom: 12px; }
+.footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 16px; }
+.footer-links a { color: var(--slate-500); font-size: 0.875rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/" class="nav-logo">Nate<span>Builds</span>AI</a>
+    <div class="nav-links">
+      <a href="/services/">Services</a>
+      <a href="/blog/" class="active">Blog</a>
+      <a href="/case-studies/">Case Studies</a>
+      <a href="/#faq">FAQ</a>
+      <a href="https://calendly.com/openclawadvisors/discovery" target="_blank" class="nav-cta">Book a Call</a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="container">
+    <h1>Blog</h1>
+    <p>Real stories, real setups, real results. No AI hype — just what actually works for businesses.</p>
+  </div>
+</section>
+
+<section class="blog-grid">
+  <div class="container">
+    <div class="blog-card">
+      <span class="tag">Story</span>
+      <h2><a href="/blog/why-i-run-4-ai-agents-as-a-plumber/">Why I Run 4 AI Agents as a Plumber</a></h2>
+      <p class="excerpt">I'm a plumber in Greater Boston. I run 4 AI agents that handle my scheduling, research, memory, and business operations. Here's why — and how.</p>
+      <div class="meta">February 4, 2026 · 8 min read</div>
+      <a href="/blog/why-i-run-4-ai-agents-as-a-plumber/" class="read-more">Read More →</a>
+    </div>
+  </div>
+</section>
+
+<section class="more-guides">
+  <div class="container">
+    <p>Looking for step-by-step guides and tutorials?</p>
+    <a href="https://openclawadvice.com" target="_blank" style="font-weight:600; font-size:1.05rem;">Visit OpenClaw Advice →</a>
+    <p style="margin-top:8px; font-size:0.85rem; color:var(--slate-600);">Our sister site with in-depth guides for non-technical users</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/services/">Services</a>
+      <a href="/case-studies/">Case Studies</a>
+      <a href="mailto:nate@openclawadvisors.com">Contact</a>
+    </div>
+    <p>© 2026 Nate Johnson / OpenClaw Advisors</p>
+    <p style="color:var(--slate-600); font-size:0.8rem;">Powered by OpenClaw 🗝️</p>
+  </div>
+</footer>
+
+</body>
+</html>

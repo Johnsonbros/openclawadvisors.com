@@ -1,0 +1,25 @@
+name: ZEKE Push Notification
+
+on:
+  push:
+    branches: [main, master]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - name: Notify ZEKE
+        run: |
+          curl -s -X POST "${{ secrets.ZEKE_WEBHOOK_URL }}/hooks/git-push" \
+            -H "Authorization: Bearer ${{ secrets.ZEKE_HOOK_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"repo\": \"${{ github.repository }}\",
+              \"branch\": \"${{ github.ref_name }}\",
+              \"commits\": ${{ github.event.commits && toJSON(github.event.commits) || '[]' }},
+              \"commit_count\": $(echo '${{ toJSON(github.event.commits) }}' | python3 -c 'import sys,json; print(len(json.loads(sys.stdin.read() or "[]")))' 2>/dev/null || echo 1),
+              \"pusher\": \"${{ github.actor }}\",
+              \"message\": \"${{ github.event.head_commit.message }}\"
+            }" \
+            --max-time 10 || echo "Webhook notification failed (non-critical)"
